@@ -4,6 +4,8 @@ import { Button } from '@nextui-org/react';
 import AnimatedInput from '../Motion/AnimatedInput';
 import { Link } from 'react-router-dom';
 
+import '@/styles/main.css'
+
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');

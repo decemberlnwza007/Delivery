@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Loading from "@/components/Loading";
 import LoginForm from "@/components/Login/LoginForm";
+import '@/styles/main.css'
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -18,10 +19,8 @@ export default function Home() {
   }
 
   return (
-    <div>
-      <div style={{ display: "flex", justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: '#f0f0f0' }}>
+      <div className="bg">
         <LoginForm />
-      </div>
     </div>
   );
 }
