@@ -1,0 +1,30 @@
+.card {
+    max-width: 500px; 
+    margin: 0 auto; 
+    padding: 20px; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    background-color: #fff; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+  }
+  
+  input {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%; 
+    border-radius: 4px;
+  }
+  
+  .swiper-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    min-height: 100vh;
+}
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
