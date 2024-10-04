@@ -92,6 +92,9 @@ export default function RentPage() {
       <br />
       <br />
       <br />
+       <br />
+      <br />
+      <br />
       <motion.div
         className="flex flex-col items-start justify-center gap-4 py-8 md:py-10 px-4"
         initial={{ opacity: 0, y: -20 }}

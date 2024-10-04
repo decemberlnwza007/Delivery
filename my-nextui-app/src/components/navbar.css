@@ -119,6 +119,6 @@ a:hover {
 section {
   background: url("bg.jpg") no-repeat;
   background-size: cover;
-  height: calc(100vh - 80px); /* ให้ความสูงของ Section เป็น 100vh - ความสูงของ Navbar */
-  margin-top: 80px; /* เพิ่มมาร์จิ้นเพื่อไม่ให้เนื้อหาซ้อนกับ Navbar */
+  height: calc(100vh - 80px);
+  margin-top: 80px;
 }
