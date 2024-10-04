@@ -3,16 +3,36 @@ import { motion } from 'framer-motion';
 import { Button } from '@nextui-org/react';
 import AnimatedInput from '../Motion/AnimatedInput';
 import { Link } from 'react-router-dom';
+import { auth } from '../firebase';
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
-import '@/styles/main.css'
+import '@/styles/main.css';
 
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const navigate = useNavigate()
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log({ email, password });
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      console.log('Login Successfully');
+    } catch (error) {
+      console.error('Error logging in: ', error);
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      await signInWithPopup(auth, provider);
+      console.log('Google Login Successful');
+      navigate('/Home')
+    } catch (error) {
+      console.error('Error logging in with Google: ', error);
+    }
   };
 
   return (
@@ -24,7 +44,6 @@ const LoginForm: React.FC = () => {
       style={{
         maxWidth: '500px',
         width: '100%',
-        margin: '0 auto',
         padding: '40px',
         border: '1px solid #ccc',
         borderRadius: '8px',
@@ -35,14 +54,14 @@ const LoginForm: React.FC = () => {
       <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>เข้าสู่ระบบ</h2>
       <form onSubmit={handleSubmit}>
         <AnimatedInput
-        label='อีเมลล์'
+          label='อีเมลล์'
           type="email"
           placeholder='อีเมลล์'
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <AnimatedInput
-        label='รหัสผ่าน'
+          label='รหัสผ่าน'
           type="password"
           value={password}
           placeholder='รหัสผ่าน'
@@ -50,6 +69,11 @@ const LoginForm: React.FC = () => {
         />
         <Button type="submit" color='primary' fullWidth>
           เข้าสู่ระบบ
+        </Button>
+        <br />
+        <br />
+        <Button onClick={handleGoogleSignIn} color="success" fullWidth>
+          ล็อกอินด้วย Google
         </Button>
         <br />
         <br />

@@ -1,0 +1,12 @@
+.homepage-container {
+    display: flex;
+    height: calc(100vh - 80px);
+}
+
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+}
